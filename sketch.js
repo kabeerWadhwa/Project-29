@@ -9,7 +9,7 @@ function setup() {
   engine = Engine.create();
   world = engine.world;
   ground1 = new ground(400,380,800,20);
-  polygon1 = new Polygon(220,60,20,20);
+  polygon1 = new Polygon(220,60,20);
   block1 = new box(120,235,30,40);
   block2 = new box(150,235,30,40);
   block3 = new box(180,235,30,40);
@@ -26,6 +26,7 @@ function setup() {
   block14 = new box(510,235,30,40);
   block15 = new box(530,235,30,40);
   block16 = new box(550,235,30,40);
+  slingshot = new SlingShot(polygon1.body,{x: 100, y: 250})
 }
 
 function draw() {
@@ -48,12 +49,13 @@ function draw() {
   block14.display()
   block15.display()
   block16.display()
-  polygon11.display()
+  polygon1.display()
+  slingshot.display()
   drawSprites();
 }
 
 function mouseDragged(){
-  Matter.Body.setPosition(bird.body, {x: mouseX , y: mouseY});
+  Matter.Body.setPosition(polygon1.body, {x: mouseX , y: mouseY});
 }
 
 function mouseReleased(){
